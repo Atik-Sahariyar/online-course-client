@@ -6,7 +6,7 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [userName, setUserName] = useState('')
     const [userPhoto, setUserPhoto] = useState('')
-
+    const isAdmin = true;
 
     useEffect(() => {
         if (user) {
@@ -26,13 +26,11 @@ const Navbar = () => {
         <li> <NavLink to="/">Home</NavLink></li>
         <li> <NavLink to="/teachers">Teachers</NavLink></li>
         <li> <NavLink to="/success">Success</NavLink></li>
+
         {
-            !user ? <li> <NavLink to="/signup">Sign Up</NavLink></li>
-           : 
-            <>
-                    <li> <NavLink to="/addCourse">Add Course</NavLink></li>
-            </>
+            isAdmin && <li> <NavLink to="/addCourse">Add Course</NavLink></li>
         }
+    
 
     </>
 

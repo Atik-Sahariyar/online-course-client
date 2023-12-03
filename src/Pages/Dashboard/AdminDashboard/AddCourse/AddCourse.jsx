@@ -1,4 +1,4 @@
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 
 const AddCourse = () => {
     const axiosSecure = useAxiosSecure();
