@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
 import CourseCard from "./CourseCard";
+import useCourses from "../../../Hooks/useCourses";
 
 
 const Courses = () => {
-    const [ courses, setCourses ] = useState([]);
+    const { courses, coursesLoading } = useCourses();
 
-    useEffect(() => {
-
-        fetch('courses.json')
-        .then(res => res.json())
-        .then(data => {
-            setCourses(data);
-        })
-    },[])
+    if(coursesLoading){
+        return <div className=" text-center h-screen my-auto">Loading...</div>
+    }
+    
 
     return (
         <div className="my-10">
@@ -20,7 +16,7 @@ const Courses = () => {
            <div className=" flex justify-center items-center">
            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
-                    courses.map(course => <CourseCard key={course.id} course ={course}></CourseCard>)
+                    courses.map(course => <CourseCard key={course._id} course ={course}></CourseCard>)
                 }
             </div>
            </div>

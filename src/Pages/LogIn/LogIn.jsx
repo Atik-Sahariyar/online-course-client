@@ -1,14 +1,16 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const LogIn = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const { googleSignIn, signIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const axiosPublic = useAxiosPublic()
 
-    console.log(location);
+
 
     const logInWithEmailAndPassword = e => {
         e.preventDefault();
@@ -30,13 +32,23 @@ const LogIn = () => {
             })
     }
 
-    const handleGoogleSignIn = () => {
-        googleSignIn()
-            .then(result => {
-                console.log(result);
-                navigate(location?.state ? location.state : '/');
+    const handleGoogleSignIn = async() => {
+        try{
+            const result = await googleSignIn();
+            const userInfo = {
+              name: result.user?.displayName,
+              email: result.user?.email,
+              photo: result.user?.photoURL,
+            }
+            console.log(userInfo);
+            axiosPublic.post('/users', userInfo)
+            .then(res => {
+              console.log(res.data);
+               navigate('/');
             })
-            .catch(error => console.log(error));
+          } catch (error) {
+            console.error('Error during Google sign-in:', error);
+        }
     }
     return (
       <div className="hero min-h-screen bg-base-200">
