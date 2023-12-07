@@ -22,7 +22,11 @@ const LogIn = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
-
+                const userInfo = {
+                    email, password
+                }
+               const res = axiosPublic.post('/users', userInfo);
+               console.log(res);
                 // navigate after login
                 navigate(location?.state ? location.state : '/');
 
