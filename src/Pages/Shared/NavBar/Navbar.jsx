@@ -1,26 +1,16 @@
-import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import useAdmin from "../../../Hooks/useAdmin";
+import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
-    const [userName, setUserName] = useState('')
-    const [userPhoto, setUserPhoto] = useState('')
-    const {isAdmin} = useAdmin();
-    
+    const { user, logOut } = useAuth();
 
-    useEffect(() => {
-        if (user) {
-            const { displayName, photoURL } = user;
-            setUserName(displayName);
-            setUserPhoto(photoURL);
-        }
-        else {
-            setUserName('');
-            setUserPhoto('');
-        }
-    }, [user])
+    const {isAdmin, isPending} = useAdmin();
+   
+    if(isPending){
+        return <div>Loading...</div>
+    }
+ 
 
 
 
@@ -28,9 +18,12 @@ const Navbar = () => {
         <li> <NavLink to="/">Home</NavLink></li>
         <li> <NavLink to="/teachers">Teachers</NavLink></li>
         <li> <NavLink to="/success">Success</NavLink></li>
-
+        
         {
-            isAdmin && <li> <NavLink to="/dashboard">Admin Dashboard</NavLink></li>
+            isAdmin ? 
+            <li> <NavLink to="/dashboard">Admin Dashboard</NavLink></li>
+            :
+            <li> <NavLink to="/dashboard">Dashboard</NavLink></li>
         }
     
 
@@ -70,8 +63,8 @@ const Navbar = () => {
                     user ? (
                         <div className=" flex flex-col md:flex-row lg:flex-row gap-1 items-center">
                             <div className=" flex flex-col md:flex-row lg:flex-row items-center">
-                                <img src={userPhoto} className=" w-12 h-12 rounded-full" alt="" />
-                                <p>{userName}</p></div>
+                                <img src={user?.photoURL} className=" w-12 h-12 rounded-full" alt="" />
+                                <p>{user?.displayName}</p></div>
                             <button onClick={handleLogOut} className="btn">Sign Out</button>
                         </div>
                     )

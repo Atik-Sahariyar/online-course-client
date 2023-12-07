@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
 const useCourse = (id) => {
-    console.log(id);
+  console.log(id);
   const axiosPublic = useAxiosPublic();
   const { data: course, isPending: courseLoading, refetch: courseRefetch} = useQuery({
     queryKey: ['courseId', id],
@@ -11,8 +11,8 @@ const useCourse = (id) => {
         return res.data;
     }
   });
-  
-  return {course, courseLoading, courseRefetch };
+
+  return { course , courseLoading, courseRefetch };
 };
 
 export default useCourse;

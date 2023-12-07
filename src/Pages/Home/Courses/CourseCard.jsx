@@ -2,13 +2,13 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
-  const { _id, title, instructor, image_url, syllabus, duration } = course;
+  const { _id, title, instructor, imageURL, syllabus, duration } = course;
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure>
         <img
-          src={image_url}
+          src={imageURL}
           className=" h-[220px] w-96 rounded-tl-xl rounded-tr-xl"
           alt={title}
         />

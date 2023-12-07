@@ -6,10 +6,14 @@ import Teachers from "../Pages/Teachers/Teachers";
 import Success from "../Pages/Success/Success";
 import Root from "../Layout/Root";
 import Dashboard from "../Layout/Dashboard";
-import AddCourse from "../Pages/Dashboard/AdminDashboard/AddCourse/AddCourse";
 import PrivateRoute from "./PrivateRoute";
 import CourseDetails from "../Pages/Home/Courses/CourseDetails";
 import CourseEnrollment from "../Pages/Home/Courses/CourseEnrollment";
+import AdminRoute from "./adminRoute";
+import AddCourse from "../Dashboard/AdminDashboard/AddCourse/AddCourse";
+import ManageCourse from "../Dashboard/AdminDashboard/ManageCourse/ManageCourse"
+import UploadContent from "../Dashboard/AdminDashboard/ManageCourse/UploadContent"
+import MyClasses from "../Dashboard/UserDahboard/MyClasses/MyClasses";
 
 const routes = createBrowserRouter([
   {
@@ -54,9 +58,23 @@ const routes = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      // admin routes
       {
         path: "addCourse",
-        element: <AddCourse></AddCourse>,
+        element: <AdminRoute><AddCourse></AddCourse></AdminRoute>,
+      },
+      {
+        path: "manageCourse",
+        element:<AdminRoute> <ManageCourse></ManageCourse></AdminRoute>,
+      },
+      {
+        path: "uploadContent/:id",
+        element:<AdminRoute> <UploadContent></UploadContent> </AdminRoute>,
+      },
+      // user routes
+      {
+        path: "myClasses",
+        element: <MyClasses></MyClasses>,
       },
     ],
   }

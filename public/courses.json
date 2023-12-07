@@ -2,132 +2,132 @@
     
     {
         "id": 1,
-        "title": "Introduction to Web Development",
+        "courseTitle": "Introduction to Web Development",
         "description": "Learn the basics of web development including HTML, CSS, and JavaScript. Dive into responsive design and web development best practices.",
         "instructor": "John Doe",
         "duration": "6 weeks",
         "price": 49.99,
-        "enrollment_start_date": "2023-10-15",
-        "enrollment_last_date": "2023-11-01",
+        "enrollmentStartDate": "2023-10-15",
+        "enrollmentLastDate": "2023-11-01",
         "syllabus": [
             "HTML Basics",
             "CSS Styling",
             "JavaScript Fundamentals",
             "Responsive Design"
         ],
-        "image_url": "https://i.ibb.co/rbV61Gf/Introduction-to-Web-Development.jpg"
+        "imageURL": "https://i.ibb.co/rbV61Gf/Introduction-to-Web-Development.jpg"
     },
     {
         "id": 2,
-        "title": "Advanced JavaScript Techniques",
+        "courseTitle": "Advanced JavaScript Techniques",
         "description": "Master advanced JavaScript concepts and techniques for building dynamic web applications. Explore frameworks like React and Node.js.",
         "instructor": "Jane Smith",
         "duration": "4 weeks",
         "price": 59.99,
-        "enrollment_start_date": "2023-11-05",
-        "enrollment_last_date": "2023-12-01",
+        "enrollmentStartDate": "2023-11-05",
+        "enrollmentLastDate": "2023-12-01",
         "syllabus": [
             "ES6+",
             "React.js",
             "Node.js",
             "RESTful APIs"
         ],
-        "image_url": "https://i.ibb.co/Kyw3yK1/Advanced-Java-Script-Techniques.jpg"
+        "imageURL": "https://i.ibb.co/Kyw3yK1/Advanced-Java-Script-Techniques.jpg"
     },
     {
         "id": 3,
-        "title": "Python Programming for Beginners",
+        "courseTitle": "Python Programming for Beginners",
         "description": "A comprehensive introduction to Python programming language for beginners. Cover topics such as data structures, loops, and functions.",
         "instructor": "Alice Johnson",
         "duration": "8 weeks",
         "price": 69.99,
-        "enrollment_start_date": "2023-12-10",
-        "enrollment_last_date": "2024-01-05",
+        "enrollmentStartDate": "2023-12-10",
+        "enrollmentLastDate": "2024-01-05",
         "syllabus": [
             "Python Basics",
             "Data Structures",
             "Object-Oriented Programming"
         ],
-        "image_url": "https://i.ibb.co/qmfLJBW/Python-Programming-for-Beginners.jpg"
+        "imageURL": "https://i.ibb.co/qmfLJBW/Python-Programming-for-Beginners.jpg"
     },
     {
         "id": 4,
-        "title": "Data Science Fundamentals",
+        "courseTitle": "Data Science Fundamentals",
         "description": "Explore the basics of data science, including data analysis, visualization, and machine learning concepts. Use tools like Python and Jupyter Notebook.",
         "instructor": "Michael Brown",
         "duration": "10 weeks",
         "price": 79.99,
-        "enrollment_start_date": "2024-01-10",
-        "enrollment_last_date": "2024-02-10",
+        "enrollmentStartDate": "2024-01-10",
+        "enrollmentLastDate": "2024-02-10",
         "syllabus": [
             "Data Analysis",
             "Data Visualization",
             "Machine Learning"
         ],
-        "image_url": "https://i.ibb.co/WPzD5tk/Data-Science-Fundamentals.jpg"
+        "imageURL": "https://i.ibb.co/WPzD5tk/Data-Science-Fundamentals.jpg"
     },
     {
         "id": 5,
-        "title": "Mobile App Development with React Native",
+        "courseTitle": "Mobile App Development with React Native",
         "description": "Learn to build cross-platform mobile apps using React Native. Cover UI components, state management, and API integration.",
         "instructor": "Sarah Lee",
         "duration": "6 weeks",
         "price": 64.99,
-        "enrollment_start_date": "2024-02-15",
-        "enrollment_last_date": "2024-03-05",
+        "enrollmentStartDate": "2024-02-15",
+        "enrollmentLastDate": "2024-03-05",
         "syllabus": [
             "React Native Basics",
             "State Management",
             "API Integration"
         ],
-        "image_url": "https://i.ibb.co/dj47XZN/Mobile-App-Development-with-React-Native.jpg"
+        "imageURL": "https://i.ibb.co/dj47XZN/Mobile-App-Development-with-React-Native.jpg"
     },
     {
         "id": 6,
-        "title": "Blockchain Technology: Concepts and Applications",
+        "courseTitle": "Blockchain Technology: Concepts and Applications",
         "description": "Explore the fundamentals of blockchain technology, smart contracts, and decentralized applications (DApps).",
         "instructor": "David White",
         "duration": "8 weeks",
         "price": 74.99,
-        "enrollment_start_date": "2024-03-10",
-        "enrollment_last_date": "2024-04-01",
+        "enrollmentStartDate": "2024-03-10",
+        "enrollmentLastDate": "2024-04-01",
         "syllabus": [
             "Blockchain Basics",
             "Smart Contracts",
             "Decentralized Applications"
         ],
-        "image_url": "    https://i.ibb.co/Js8CSz4/blockchain-examples-applications-1.jpg"
+        "imageURL": "    https://i.ibb.co/Js8CSz4/blockchain-examples-applications-1.jpg"
     },
     {
         "id": 7,
-        "title": "Networking Essentials",
+        "courseTitle": "Networking Essentials",
         "description": "Understand the fundamentals of networking, including protocols, IP addressing, and network security.",
         "instructor": "Emily Johnson",
         "duration": "5 weeks",
         "price": 54.99,
-        "enrollment_start_date": "2024-04-05",
-        "enrollment_last_date": "2024-04-20",
+        "enrollmentStartDate": "2024-04-05",
+        "enrollmentLastDate": "2024-04-20",
         "syllabus": [
             "Network Protocols",
             "IP Addressing",
             "Network Security"
         ],
-        "image_url": "https://i.ibb.co/hFyVtNQ/Networking-Essentials.jpg"
+        "imageURL": "https://i.ibb.co/hFyVtNQ/Networking-Essentials.jpg"
     },
     {
         "id": 8,
-        "title": "Graphics Design Masterclass",
+        "courseTitle": "Graphics Design Masterclass",
         "description": "Enhance your graphic design skills. Learn about typography, color theory, and graphic design software.",
         "instructor": "Daniel Miller",
         "duration": "7 weeks",
         "price": 59.99,
-        "enrollment_start_date": "2024-05-01",
-        "enrollment_last_date": "2024-05-25",
+        "enrollmentStartDate": "2024-05-01",
+        "enrollmentLastDate": "2024-05-25",
         "syllabus": [
             "Typography",
             "Color Theory",
             "Adobe Creative Suite"
         ],
-        "image_url": "https://i.ibb.co/RY6XHxN/Graphics-Design-Masterclass.jpg"
+        "imageURL": "https://i.ibb.co/RY6XHxN/Graphics-Design-Masterclass.jpg"
     }
 ]

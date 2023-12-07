@@ -5,15 +5,23 @@ import { loadStripe } from '@stripe/stripe-js';
 import { FaMedal } from 'react-icons/fa';
 import useEnrollment from '../../../Hooks/useEnrollment';
 import { useParams } from 'react-router-dom';
+import useCourse from '../../../Hooks/useCourse';
 
 const CourseEnrollment = () => {
   const { isEnrolled } = useEnrollment(); 
   const { id } = useParams();
   const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
+  const { course, courseLoading } =  useCourse(id);
+  const { price } = course;
+  
+  if(courseLoading){
+    return <div className=' text-center'>Loading...</div>
+  }
+
   const handleError = error => {
     console.log('Failed to load Stripe : ', error);
   };
-
+  
 
   return (
     <div>
@@ -46,9 +54,9 @@ const CourseEnrollment = () => {
             </p>
 
             <div className="flex flex-col items-center justify-center">
-              <p className="text-2xl mb-4 font-bold">Pay the Course Fee</p>
+              <p className="text-2xl mb-4 font-bold">Pay the Course Fee: ${price}</p>
               <Elements stripe={stripePromise} onError={handleError}>
-                <CheckoutForm id={id} />
+                <CheckoutForm id={id} price={price} />
               </Elements>
               <p className="text-gray-500 text-sm mt-3">
                 Secure Payment Gateway

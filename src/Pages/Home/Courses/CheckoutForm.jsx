@@ -5,10 +5,8 @@ import { useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useDate from "../../../Hooks/useDate";
 import useAuth from "../../../Hooks/useAuth";
-import useCourse from "../../../Hooks/useCourse";
 
-
-const CheckoutForm = ({id}) => {
+const CheckoutForm = ({id, price}) => {
     const [error, setError] = useState('');
     const [clientSecret, setClientSecret] = useState();
     const [transactionId, setTransactionId] = useState();
@@ -18,21 +16,18 @@ const CheckoutForm = ({id}) => {
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const navigate = useNavigate();
-    const { course, courseLoading } =  useCourse(id);
-    const { price } = course;
+ 
   
     useEffect(() => {
-      if(courseLoading){
-        return
-      }
-      const totalPrice = price
-        if(totalPrice > 0){
-         axiosSecure.post('/create-payment-intent', { price: totalPrice })
+     
+
+        if(price > 0){
+         axiosSecure.post('/create-payment-intent', { price })
          .then(res => {
              setClientSecret(res.data.clientSecret)
          })
         }
-     }, [axiosSecure, courseLoading, price]);
+     }, [axiosSecure, price]);
  
    console.log('stripe:', stripe, 'client secret: ', clientSecret);
     const handleSubmit = async (event) => {
