@@ -29,7 +29,7 @@ const CheckoutForm = ({id, price}) => {
         }
      }, [axiosSecure, price]);
  
-   console.log('stripe:', stripe, 'client secret: ', clientSecret);
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (!stripe || !elements) {
@@ -95,7 +95,7 @@ const CheckoutForm = ({id, price}) => {
                         showConfirmButton: false,
                         timer: 2000
                       });
-                      navigate('/')
+                      navigate('/dashboard/myClasses')
                 }
             }
         }

@@ -51,7 +51,7 @@ const CourseDetails = () => {
           </button>
         </Link>
         :
-        <Link to={`/myClass/${_id}`}>
+        <Link to={`/dashboard/myClasses`}>
         <button className=" w-full bg-blue-600 text-white rounded-xl py-2">
            My Class
         </button>
