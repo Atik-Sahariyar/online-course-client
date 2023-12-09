@@ -1,6 +1,5 @@
 # Online Course Client
 
-## Description
 
 This is the client-side application for an online course platform, designed to provide a user-friendly interface for students to browse courses, enroll in classes, and interact with instructors. The platform is built using React and Vite for efficient development and includes features for user authentication, course management, payment processing, and more.
 
