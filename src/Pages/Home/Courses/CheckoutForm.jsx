@@ -68,9 +68,9 @@ const CheckoutForm = ({id, price}) => {
             console.log(confirmError);
         }
         else {
-            console.log('payment intent', paymentIntent);
+          
             if(paymentIntent.status === "succeeded"){
-                console.log('transaction id: ', paymentIntent.id);
+             
                 setTransactionId(paymentIntent.id);
 
                 // now save the payment in the database
@@ -87,15 +87,17 @@ const CheckoutForm = ({id, price}) => {
                 console.log('payment save', res.data);
                 if(res?.data?._id){
                    const res = await axiosSecure.patch(`/users/${user.email}?courseId=${id}`);
-                   console.log(res.data);
+                   if(res.data){
                     Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Course enroll successfull",
-                        showConfirmButton: false,
-                        timer: 2000
-                      });
-                      navigate('/dashboard/myClasses')
+                      position: "top-end",
+                      icon: "success",
+                      title: "Course enroll successfull",
+                      showConfirmButton: false,
+                      timer: 2000
+                    });
+                    navigate('/dashboard/myClasses')
+                   }
+                    
                 }
             }
         }

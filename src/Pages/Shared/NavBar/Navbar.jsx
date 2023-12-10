@@ -1,15 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
-import useAdmin from "../../../Hooks/useAdmin";
 import useAuth from "../../../Hooks/useAuth";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
 
-    const {isAdmin, isPending} = useAdmin();
-   
-    if(isPending){
-        return <div>Loading...</div>
-    }
+
  
 
     const links = <>
@@ -19,10 +14,10 @@ const Navbar = () => {
         <li> <NavLink to="/success">Success</NavLink></li>
         
         {
-            isAdmin ? 
-            <li> <NavLink to="/dashboard">Admin Dashboard</NavLink></li>
-            :
+            user ? 
             <li> <NavLink to="/dashboard">Dashboard</NavLink></li>
+            :
+           ''
         }
     
 

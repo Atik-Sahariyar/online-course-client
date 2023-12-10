@@ -13,9 +13,8 @@ const useUser = () => {
         return res?.data
     }
     });
-    console.log(loggedInUser);
+    
     const courseIds = loggedInUser?.courseIds
-    console.log(courseIds);
     return {courseIds, loggedInUser, userLoading }
 };
 

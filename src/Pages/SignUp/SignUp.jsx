@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-// import axios from "axios";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
-// const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-// const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}` || '';
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}` || '';
 
 const SignUp = () => {
   const { createUser, updateUserProfiole } = useContext(AuthContext);
@@ -26,17 +26,17 @@ const SignUp = () => {
     const name = data.name;
     const email = data.email;
     const password = data.password;
-    // const imageFiile = { image: data.profilePic[0] };
-    // const url = await axios.post(image_hosting_api, imageFiile, {
-    //   headers: {
-    //     "content-type": "multipart/form-data",
-    //   },
-    // }) ;
-    // console.log( 'url:',url);
+    const imageFiile = { image: data.profilePic[0] };
+    const url = await axios.post(image_hosting_api, imageFiile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    }) ;
+
     let photoURL = "";
-    // if (url?.data) {
-    //   photoURL = url.data?.data?.display_url;
-    // }
+    if (url?.data) {
+      photoURL = url.data?.data?.display_url;
+    }
     createUser(email, password).then(async () => {
       updateUserProfiole(name, photoURL).then(async () => {
         const userInfo = {
@@ -46,10 +46,10 @@ const SignUp = () => {
           password,
         };
         reset();
-        console.log("user info: ", userInfo);
+       
         const res = await axiosPublic.post("/users", userInfo);
         if (res.data?._id) {
-          console.log(res.data);
+      
           Swal.fire("Sign up successfull");
           navigate("/");
           reset();

@@ -10,7 +10,7 @@ const useEnrollment = () => {
         queryKey: [user?.email, 'isMember'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/users/member/${user?.email}`)
-            console.log(res.data);
+          
             return res.data;
         }
     }) 

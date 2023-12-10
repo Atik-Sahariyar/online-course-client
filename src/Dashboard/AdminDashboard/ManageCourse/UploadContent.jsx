@@ -34,7 +34,7 @@ const UploadContent = () => {
         reset();
     }
   };
-  console.log(course);
+
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
       <h2 className="text-2xl font-bold mb-4">Upload {`"${course.courseTitle}"`} Video</h2>

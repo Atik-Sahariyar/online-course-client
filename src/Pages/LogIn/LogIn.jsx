@@ -10,11 +10,9 @@ const LogIn = () => {
     const navigate = useNavigate();
     const axiosPublic = useAxiosPublic()
 
-
-
     const logInWithEmailAndPassword = e => {
         e.preventDefault();
-        console.log(e.currentTarget);
+
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
@@ -26,9 +24,11 @@ const LogIn = () => {
                     email, password
                 }
                const res = axiosPublic.post('/users', userInfo);
-               console.log(res);
-                // navigate after login
+               if(res){
+                    // navigate after login
                 navigate(location?.state ? location.state : '/');
+               }
+             
 
             })
             .catch(error => {
